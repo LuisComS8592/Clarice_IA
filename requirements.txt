@@ -1,0 +1,12 @@
+# Dependências do Projeto Clarice.IA
+torch
+transformers
+pandas
+numpy
+sentence-transformers
+bert_score
+nltk
+google-generativeai
+streamlit
+scikit-learn
+spacy
