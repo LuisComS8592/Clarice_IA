@@ -10,3 +10,4 @@ google-generativeai
 streamlit
 scikit-learn
 spacy
+gdown
