@@ -21,7 +21,7 @@ O objetivo foi explorar os limites de modelos menores (GPT-2) na captura de esti
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/LuisComS8592/Clarice_IA.git](https://github.com/LuisComS8592/Clarice_IA.git)
+   git clone https://github.com/LuisComS8592/Clarice_IA.git
    cd Clarice_IA
    ```
 
