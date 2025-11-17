@@ -21,8 +21,8 @@ O objetivo foi explorar os limites de modelos menores (GPT-2) na captura de esti
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/SEU_USUARIO/Clarice-Digital.git](https://github.com/SEU_USUARIO/Clarice-Digital.git)
-   cd Clarice-Digital
+   git clone [https://github.com/LuisComS8592/Clarice_IA.git](https://github.com/LuisComS8592/Clarice_IA.git)
+   cd Clarice_IA
    ```
 
 2. **Instale as dependências:**
@@ -31,9 +31,8 @@ pip install -r requirements.txt
 ```
 
 3. **Obtenha o Modelo:**
-   ``Nota: Devido ao tamanho, o modelo treinado não está neste repositório.``
+- Execute o script ``download_model.py`` para baixar os pesos do modelo.
 - Você pode treinar o seu próprio usando o script de notebook fornecido.
-- Ou extrair o seu modelo treinado para a pasta ``./model``.
 
 4. **Execute a Interface:**
 ```bash
@@ -44,7 +43,7 @@ streamlit run app.py
 ```
 /Clarice_IA/
 │
-├── model/                           # (Seu modelo treinado, ignorado pelo .gitignore)
+├── model/                           # Pasta destino do modelo
 │
 ├── src/                             # "Source": Onde vive nossa lógica principal
 │   ├── model_utils.py               # Funções para carregar modelos (GPT-2, SBERT)
@@ -53,6 +52,7 @@ streamlit run app.py
 ├── app.py                           # App Streamlit (Interface)
 ├── evaluate.py                      # O SCRIPT que você executa para rodar a avaliação
 ├── corpus.txt                       # O corpus de dados
+├── download_model.py                # O corpus de dados
 ├── requirements.txt                 # Nossas dependências
 └── training and evaluation.ipynb    # Notebook utilizado para treinamento e avaliação do modelo no Colab
 ```
