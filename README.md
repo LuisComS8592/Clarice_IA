@@ -1,4 +1,4 @@
-# # Clarice IA ✍️🤖
+# Clarice IA ✍️🤖
 
 > "Que ninguém se engane, só se consegue a simplicidade através de muito trabalho."
 
