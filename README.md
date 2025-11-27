@@ -54,8 +54,6 @@ streamlit run app.py
 ├── corpus.txt                       # O corpus de dados
 ├── download_model.py                # O corpus de dados
 ├── requirements.txt                 # Nossas dependências
-└── training and evaluation.ipynb    # Notebook utilizado para treinamento e avaliação do modelo no Colab
+├── training and evaluation.ipynb    # Notebook utilizado para treinamento e avaliação do modelo no Colab
+└── GenAI_Classifier.ipynb           # Notebook utilizado para treinamento e avaliação do modelo de classificação no Colab
 ```
-
----
-`Desenvolvido como projeto de portfólio de Data Science.`
