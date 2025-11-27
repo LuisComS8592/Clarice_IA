@@ -1,59 +1,89 @@
 # Clarice IA ✍️🤖
 
-> "Que ninguém se engane, só se consegue a simplicidade através de muito trabalho."
+> *"Que ninguém se engane, só se consegue a simplicidade através de muito trabalho."*
 
-Uma Inteligência Artificial Generativa fine-tuned no estilo literário de **Clarice Lispector**. Este projeto utiliza um modelo GPT-2 (Small) treinado em um corpus curado de crônicas e romances da autora, capaz de gerar textos introspectivos e filosoficamente densos.
+Uma Inteligência Artificial Generativa baseada em **Small Language Models (SLMs)**, capaz de mimetizar o estilo literário complexo e introspectivo de **Clarice Lispector**.
+
+Este projeto foi desenvolvido como um estudo de caso científico sobre os limites do *fine-tuning* em arquiteturas menores, culminando em uma análise adversarial rigorosa.
 
 ![Status](https://img.shields.io/badge/Status-Concluído-green)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Tech](https://img.shields.io/badge/Tech-Transformers%20%7C%20Streamlit-orange)
+![Model](https://img.shields.io/badge/Model-GPT--2%20Small-purple)
+![Tech](https://img.shields.io/badge/Tech-PyTorch%20%7C%20Streamlit-orange)
+
+---
 
 ## 🧠 Sobre o Projeto
 
-O objetivo foi explorar os limites de modelos menores (GPT-2) na captura de estilos literários complexos. O modelo passou por:
-1.  **Curadoria de Dados:** Limpeza de ruídos, OCR e formatação.
-2.  **Fine-Tuning:** Treinamento com agendamento linear e *weight decay* zero para maximizar a apreensão estilística.
-3.  **Avaliação:** Validado por métricas de *Perplexity*, *BERTScore* e avaliado qualitativamente pelo Gemini 2.5 Flash.
+O objetivo deste trabalho foi investigar se um modelo pequeno (124M parâmetros), limitado em memória e abstração, conseguiria capturar a "alma" estilística de uma autora conhecida por sua sintaxe não-convencional e fluxo de consciência.
 
-**Resultado:** O modelo atingiu uma nota **8.0/10** em avaliação qualitativa, demonstrando alta originalidade (>99%) e captura da sintaxe peculiar da autora.
+Utilizando um *corpus* curado de **4MB** contendo crônicas, contos e romances, aplicamos um protocolo de **"Overfitting Estilístico Controlado"** (remoção de regularização e *weight decay* zero).
+
+### 📊 Resultados Principais
+
+O modelo foi submetido a uma avaliação híbrida (Métrica + Qualitativa + Adversarial). Os resultados finais documentados no artigo foram:
+
+| Métrica | Valor | Interpretação |
+| :--- | :--- | :--- |
+| **Perplexity (PPL)** | 26.14 | Alta fluidez gramatical em Português. |
+| **Originalidade** | 99.29% | O modelo cria frases novas, sem plagiar o corpus. |
+| **LLM-as-a-Judge** | **8.0/10** | Alta fidelidade estilística percebida (avaliado por Gemini). |
+| **Teste Adversarial** | 85.83% | O classificador detectou a IA em 85% dos casos. |
+
+### 🔍 Insights da Pesquisa
+Embora a IA tenha recebido nota 8.0 pela qualidade estética, a análise adversarial revelou que ela opera criando uma **"Caricatura Existencialista"**:
+* **Vícios da IA:** Repetição excessiva de temas centrais (*eu, silêncio, mundo, janela*).
+* **O que faltou:** Variabilidade lexical e termos concretos (*agudez, acumulando, nomes próprios*) que ancoram a escrita da autora real.
+
+---
 
 ## 🛠️ Instalação e Uso
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/LuisComS8592/Clarice_IA.git
-   cd Clarice_IA
-   ```
+Para rodar a Clarice IA localmente em sua máquina:
 
-2. **Instale as dependências:**
+### 1. Clone o repositório
+```bash
+git clone [https://github.com/LuisComS8592/Clarice_IA.git](https://github.com/LuisComS8592/Clarice_IA.git)
+cd Clarice_IA
+```
+
+### 2. **Instale as dependências:**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Obtenha o Modelo:**
-- Execute o script ``download_model.py`` para baixar os pesos do modelo.
-- Você pode treinar o seu próprio usando o script de notebook fornecido.
+### 3. **Baixe o Modelo**
+Devido ao tamanho dos pesos, o modelo não está hospedado diretamente no Git. Execute o script utilitário para baixá-lo automaticamente:
+```
+python download_model.py
+```
+Isso criará a pasta ``./model`` com os arquivos necessários.
 
-4. **Execute a Interface:**
+### 4. **Execute a Interface:**
+Inicie o aplicativo web local:
 ```bash
 streamlit run app.py
 ```
+O navegador abrirá automaticamente com o chat interativo.
 
 ## 📂 Estrutura
 ```
 /Clarice_IA/
 │
-├── model/                           # Pasta destino do modelo
+├── model/                           # Pasta onde o modelo será baixado
 │
-├── src/                             # "Source": Onde vive nossa lógica principal
-│   ├── model_utils.py               # Funções para carregar modelos (GPT-2, SBERT)
-│   └── evaluation_metrics.py        # Todas as nossas funções de métrica (PPL, Juiz LLM, etc)
+├── src/                             # Código Fonte Modular
+│   ├── model_utils.py               # Carregamento otimizado do GPT-2
+│   └── evaluation_metrics.py        # Cálculos de Perplexity, BERTScore e LLM Judge
 │
-├── app.py                           # App Streamlit (Interface)
-├── evaluate.py                      # O SCRIPT que você executa para rodar a avaliação
-├── corpus.txt                       # O corpus de dados
-├── download_model.py                # O corpus de dados
-├── requirements.txt                 # Nossas dependências
-├── training and evaluation.ipynb    # Notebook utilizado para treinamento e avaliação do modelo no Colab
-└── GenAI_Classifier.ipynb           # Notebook utilizado para treinamento e avaliação do modelo de classificação no Colab
+├── app.py                           # Interface Web (Streamlit)
+├── download_model.py                # Script de download automático do Drive
+├── evaluate.py                      # Pipeline de auditoria e métricas
+├── corpus_limpo.txt                 # Dataset curado e normalizado
+├── artigo.pdf                       # Artigo científico completo com os resultados
+├── requirements.txt                 # Dependências do projeto
+├── training and evaluation.ipynb    # Notebook de treino e validação
+└── GenAI_Classifier.ipynb           # Notebook da análise adversarial (O Duelo)
 ```
+---
+`Este projeto foi desenvolvido para fins acadêmicos e de portfólio na área de Processamento de Linguagem Natural (NLP) e IA Generativa.`
