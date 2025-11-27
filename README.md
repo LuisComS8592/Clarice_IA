@@ -43,7 +43,7 @@ Para rodar a Clarice IA localmente em sua máquina:
 
 ### 1. Clone o repositório
 ```bash
-git clone [https://github.com/LuisComS8592/Clarice_IA.git](https://github.com/LuisComS8592/Clarice_IA.git)
+git clone https://github.com/LuisComS8592/Clarice_IA.git
 cd Clarice_IA
 ```
 
